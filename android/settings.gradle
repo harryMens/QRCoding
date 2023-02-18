@@ -2,3 +2,6 @@ rootProject.name = "BCUR-android"
 include ":app"
 include ":BCUR-java"
 project(":BCUR-java").projectDir = file("../java")
+//include ':app', ':BCUR-android.app'
+
+include ':myapplication'

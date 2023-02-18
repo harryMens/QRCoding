@@ -1,10 +1,10 @@
 package com.bc.ur;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.content.Context.WINDOW_SERVICE;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
@@ -15,34 +15,14 @@ import com.google.zxing.WriterException;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
-public class QRCodes extends AppCompatActivity {
-    private static final String TAG = "QRCodes";
+public class Coders {
 
-    ImageView codeImage;
     QRGEncoder qrgEncoder;
-    boolean doAgain = true;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcodes);
 
-        codeImage = findViewById(R.id.code_image);
-        String [] strings = getIntent().getStringArrayExtra("parts");
-        int size = 0;
-        do {
-            if (size > strings.length){
-                size = 0;
-            }
-            displayCodeImages(strings[size]);
-            size++;
-        }
-        while (doAgain);
-
-    }
-    private void displayCodeImages(String code){
+    private void displayCodeImages(Context context, String code, ImageView codeImage){
         // below line is for getting
         // the windowmanager service.
-        WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+        WindowManager manager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
 
         // initializing a variable for default display.
         Display display = manager.getDefaultDisplay();
@@ -76,4 +56,5 @@ public class QRCodes extends AppCompatActivity {
             Log.e("Tag", e.toString());
         }
     }
+
 }

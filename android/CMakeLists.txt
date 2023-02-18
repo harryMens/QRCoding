@@ -10,7 +10,6 @@ project(bc-ur)
 # define multiple libraries by adding multiple add_library() commands,
 # and CMake builds them for you. When you build your app, Gradle
 # automatically packages shared libraries with your APK.
-
 get_filename_component(ROOT_DIR ${CMAKE_SOURCE_DIR} DIRECTORY)
 
 # define source files
@@ -18,6 +17,7 @@ file(GLOB BC_UR_SRC ${ROOT_DIR}/deps/bc-ur/src/*.c*)
 set(TARGET_INCLUDE_DIRS ${ROOT_DIR}/deps/bc-ur/src)
 
 # define include dir
+#include_directories("${PROJECT_SOURCE_DIR}/bc-ur-base")
 include_directories(/usr/local/include)
 
 # compile

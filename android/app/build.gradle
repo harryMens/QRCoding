@@ -1,10 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.kezong.fat-aar'
+apply plugin: 'maven-publish'
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -41,10 +44,23 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+//                from components.java
+            }
+        }
+        repositories {
+            mavenLocal()
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     embed project(":BCUR-java")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -53,4 +69,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation "androidmads.library.qrgenearator:QRGenearator:1.0.3"
+    implementation ("eu.livotov.labs.android:CAMView:2.0.1@aar") {transitive=true}
+
+
+
+
 }
+
+
+
+
+
+
+
