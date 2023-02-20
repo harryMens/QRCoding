@@ -6,6 +6,7 @@ group 'com.bc.ur'
 version ver
 
 repositories {
+    maven { url "https://jitpack.io" }
     jcenter()
     google()
 }

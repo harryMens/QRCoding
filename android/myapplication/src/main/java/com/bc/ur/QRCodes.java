@@ -54,23 +54,14 @@ public class QRCodes extends AppCompatActivity {
                     public void run() {
                         numberData = strings.get(strings.size()-1);
                         if (size < strings.size()) {
-                            if (size % 5 == 0 && showed) {
-                                showed = false;
-                                displayCodeImages(strings.get(size));
-                            }
-                            else{
                                 showed = true;
                                 displayCodeImages(strings.get(size));
-                            }
                         }
                         else {
                             size = 0;
                             displayCodeImages(strings.get(size));
                         }
-                        if (showed) {
-                            showed = false;
                             size++;
-                        }
                     }
                 });
             }

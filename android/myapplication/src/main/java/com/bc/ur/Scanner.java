@@ -107,13 +107,6 @@ public class Scanner extends AppCompatActivity {
 
                 try {
                     UR hashCause = URDecoder.decode(data);
-//                    if (size != 0 && list.size() >= size){
-//                        camera.stopScanner();
-//                        for (String string : list) {
-//                            addingHashMap();
-//                        }
-//                    }
-//                    else
                     if (isItSizeData(data)){
                         int[] intArray = new int[hashCause.getMessage().length];
                         for (int i = 0; i < hashCause.getMessage().length; i++) { intArray[i] = hashCause.getMessage()[i]; }
@@ -139,15 +132,9 @@ public class Scanner extends AppCompatActivity {
 
                         //int hashNumber = ByteBuffer.wrap(hashCode).getInt();
 
-                        int hashNumberValue = ByteBuffer.wrap(hashCode).getInt();
+                        int hashNumberValue = ByteBuffer.wrap(number).getInt();
                         byteList.add(message);
                         integers.add(hashNumberValue);
-
-//                        Log.d(TAG, "addingHashMap: before");
-//                        int hashNumberValue = ByteBuffer.wrap(hashCode).getInt();
-//                        HashMap<Integer, byte[]> hash = new HashMap<>();
-//                        hash.put(hashNumberValue,message);
-//                        hashMap.add(hash);
 
                         if (size >0) {
                             textView.setText(list.size() +"/"+ size);

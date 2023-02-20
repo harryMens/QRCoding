@@ -19,7 +19,6 @@
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:textSize="15sp"
-        android:text="5/24"
         android:id="@+id/text_count"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="50dp"
